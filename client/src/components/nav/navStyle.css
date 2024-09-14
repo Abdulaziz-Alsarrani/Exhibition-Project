@@ -1,0 +1,38 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Positions left and right sections */
+    align-items: center;
+    background-color: #333; /* Navbar background color */
+    padding: 10px 20px;
+  }
+  
+  .navbar-left a,
+  .navbar-right a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 18px;
+  }
+  
+  .navbar-left a:hover,
+  .navbar-right a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+  }
+
+  a.link:hover {
+    background-color: #ce1717;
+    border-radius: 4px;
+  }
+  
+  
+  .navbar-right {
+    display: flex;
+    gap: 10px; /* Space between login and register buttons */
+  }
+  
+  .navbar-left a {
+    font-weight: bold; /* Highlight the Home button */
+  }
+  

@@ -1,0 +1,33 @@
+# Node.js
+server/node_modules/
+server/npm-debug.log
+server/package-lock.json
+server/.env
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE and editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build output directories (if you have them at the root level)
+dist/
+build/
+out/
+
+# Miscellaneous
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Ignore client build artifacts
+client/build/
+client/.env
