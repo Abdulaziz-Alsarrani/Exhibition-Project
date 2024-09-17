@@ -51,7 +51,7 @@ const AddModal = ({ isOpen, onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <span className="modal-close" onClick={onClose}>&times;</span>
         <div className="modal-details">
-        <h2>Upload</h2>
+        <h2>Upload Image</h2>
           <form onSubmit={handleSubmit}>
             <label>
               Title:

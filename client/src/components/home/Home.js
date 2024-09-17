@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <div className="profile-page">
-    <h2>Recently Uploaded</h2>
+    <h2>Latest Image Uploaded</h2>
     {error && <p>{error}</p>}
     <div className="image-gallery">
       {images.length > 0 ? (
