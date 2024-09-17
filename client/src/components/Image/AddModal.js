@@ -31,7 +31,7 @@ const AddModal = ({ isOpen, onClose }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/upload`,
+        `${process.env.REACT_APP_API_URL}/upload`,
         formData,
         {
           headers: {

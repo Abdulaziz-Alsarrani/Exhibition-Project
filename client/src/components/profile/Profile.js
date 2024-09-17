@@ -21,7 +21,7 @@ function Profile() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/my_images`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/my_images`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}` 
           }

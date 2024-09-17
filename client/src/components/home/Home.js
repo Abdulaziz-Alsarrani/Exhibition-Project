@@ -9,7 +9,7 @@ function Home() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/images`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/images`);
         const sortedImages = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setImages(response.data);
       } catch (err) {
