@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 exports.upload_image = async (req, res) => {
-  console.log('File details:', req.file); // Debugging line
+  console.log('File details:', req.file); 
   console.log('Body details:', req.body);
   const { title, description } = req.body;
 
@@ -12,13 +12,13 @@ exports.upload_image = async (req, res) => {
     return res.status(400).json({ error: 'Image file is required' });
   }
 
-  // Save relative path, excluding the system-specific full path
+  
   const imagePath = `uploads/${req.file.filename}`;
   const newImage = new Image({
     title,
     description,
     imageUrl: imagePath,
-    userId: req.userId // The user who uploaded the image
+    userId: req.userId 
   });
 
   try {
@@ -30,18 +30,18 @@ exports.upload_image = async (req, res) => {
 };
 
 exports.update_image = async (req, res) => {
-  const { imageId } = req.params; // Get the image ID from request parameters
+  const { imageId } = req.params; 
   const { title, description } = req.body;
 
   try {
-    // Find the image by ID
+    
     const image = await Image.findById(imageId);
 
     if (!image) {
       return res.status(404).json({ error: 'Image not found' });
     }
 
-    // Check if the user is the owner of the image
+    
     if (image.userId.toString() !== req.userId.toString()) {
       return res.status(403).json({ error: 'Unauthorized to update this image' });
     }
@@ -57,8 +57,6 @@ exports.update_image = async (req, res) => {
       }
     );
 
-    // Optionally, fetch the updated image to return it
-    //const updatedImage = await Image.findById(imageId);
 
     res.status(200).json({
       success: true
@@ -70,27 +68,27 @@ exports.update_image = async (req, res) => {
 };
 
 exports.delete_image = async (req, res) => {
-  const { imageId } = req.params; // Get the image ID from request parameters
+  const { imageId } = req.params; 
 
   try {
-    // Validate that imageId is a valid ObjectId
+   
     if (!mongoose.Types.ObjectId.isValid(imageId)) {
       return res.status(400).json({ error: 'Invalid image ID' });
     }
 
-    // Find the image by ID
+    
     const image = await Image.findById(imageId);
 
     if (!image) {
       return res.status(404).json({ error: 'Image not found' });
     }
 
-    // Check if the user is the owner of the image
+    
     if (image.userId.toString() !== req.userId.toString()) {
       return res.status(403).json({ error: 'Unauthorized to delete this image' });
     }
 
-    // Delete the image
+ 
     await Image.deleteOne({ _id: imageId });
 
     const filePath = path.join(__dirname, '../uploads', path.basename(image.imageUrl));
@@ -114,7 +112,7 @@ exports.get_all_images = async (req, res) => {
     const images = await Image.find();
     // Format the imageUrl to be accessible from the client side
     const formattedImages = images.map(image => ({
-      ...image._doc, // Get all other fields
+      ...image._doc, 
       imageUrl: `${req.protocol}://${req.get('host')}/${image.imageUrl}` // Convert to full URL
     }));
     res.status(200).json(formattedImages);
@@ -124,10 +122,10 @@ exports.get_all_images = async (req, res) => {
 };
 
 exports.get_my_images = async (req, res) => {
-  const userId = req.userId; // Get userId from req.userId set by auth.check
+  const userId = req.userId;
 
   try {
-    const images = await Image.find({ userId }); // Find images where userId matches
+    const images = await Image.find({ userId }); 
     const formattedImages = images.map(image => ({
       ...image._doc,
       imageUrl: `${req.protocol}://${req.get('host')}/${image.imageUrl}` // Build full URL
@@ -152,15 +150,13 @@ exports.like_images = async (req, res) => {
     const hasLiked = image.likes.includes(userId);
 
     if (hasLiked) {
-      // If user already liked the image, remove the like
       image.likes.pull(userId);
     } else {
-      // Otherwise, add the user to the likes array
       image.likes.push(userId);
     }
 
     await image.save();
-    res.json({ message: hasLiked ? 'Unliked' : 'Liked', totalLikes: image.likes.length });
+    res.json({ message: hasLiked ? 'Unliked' : 'Liked', totalLikes: image.likes });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to like/unlike image' });

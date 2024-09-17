@@ -1,0 +1,22 @@
+.image-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.image-card:hover {
+    transform: scale(1.02);
+}
+
+.image-card__img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    max-width: 500px;
+    max-height: 400px;
+    height: auto;
+}
+
+  

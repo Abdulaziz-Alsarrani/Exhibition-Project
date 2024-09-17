@@ -1,0 +1,69 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+  }
+  
+  .modal-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .modal-details h2 {
+    margin-top: 0;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .image-card__actions {
+    margin-top: 10px;
+    text-align: center; 
+  }
+  
+  .like-button {
+    width: 20%;
+    padding: 8px 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .like-button:hover {
+    background-color: #a7a6a6bb;
+  }
+  
+  .like-button.liked {
+    background-color: #9c9c9c; 
+    color: #0f0f0f;
+  }
+
+  
+  

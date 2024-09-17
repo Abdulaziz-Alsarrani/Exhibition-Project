@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './RegisterStyle.css'; // Add your styles here
+import './RegisterStyle.css'; 
 import { useAuth  } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -40,7 +40,7 @@ const RegisterForm = () => {
         email,
         password
       });
-      login(response.data.data.accessToken);
+      login(response.data.data.accessToken, response.data.data.id);
       navigate('/profile'); 
     } catch (error) {
       if (error.response && error.response.data) {

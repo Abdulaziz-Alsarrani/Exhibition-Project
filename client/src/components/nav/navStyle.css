@@ -1,9 +1,9 @@
 /* Navbar.css */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Positions left and right sections */
+    justify-content: space-between; 
     align-items: center;
-    background-color: #333; /* Navbar background color */
+    background-color: #333; 
     padding: 10px 20px;
   }
   
@@ -29,10 +29,10 @@
   
   .navbar-right {
     display: flex;
-    gap: 10px; /* Space between login and register buttons */
+    gap: 10px; 
   }
   
   .navbar-left a {
-    font-weight: bold; /* Highlight the Home button */
+    font-weight: bold; 
   }
   

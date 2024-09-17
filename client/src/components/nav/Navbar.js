@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
-import './navStyle.css'; // Import CSS for styling
+import './navStyle.css'; 
 import { useAuth  } from '../context/AuthContext';
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
 
    const handleLogout = () => {
     logout(); 
-    navigate('/login'); // Redirect to login page
+    navigate('/login'); 
   };
 
   return (
