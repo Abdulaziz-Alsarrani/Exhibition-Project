@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import Modal from './Modal'; 
 import './image.css'; 
 import Like from './like';
-
+import UpdateModal from './UpdateModal';
+import { useAuth } from '../context/AuthContext';
 
 const ImageCard = ({ image_Id, imageSrc, title, description, initialLikes }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const { isLoggedIn } = useAuth();
   const handleImageClick = () => {
     setIsModalOpen(true); // Open modal
   };
@@ -29,7 +30,7 @@ const ImageCard = ({ image_Id, imageSrc, title, description, initialLikes }) => 
         title={title}
         description={description}
       />
-      <Like imageId={image_Id} initialLikes={initialLikes}  />
+      <Like imageId={image_Id} initialLikes={initialLikes} />
     </div>
   );
 };

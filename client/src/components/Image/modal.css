@@ -42,7 +42,7 @@
   }
 
   .image-card__actions {
-    margin-top: 10px;
+    margin-top: 5px;
     text-align: center; 
   }
   
@@ -65,5 +65,22 @@
     color: #0f0f0f;
   }
 
+
+  .delete {
+    display:  inline-block;
+    font-size: 16px;  
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+    margin: 10px;
+  }
+
+  .delete:hover {
+    background-color: #d82020;
+    color: #fff;
+  }
   
   

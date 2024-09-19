@@ -25,9 +25,44 @@
   }
 
   .add-button:hover {
-    background-color: #566b52;
+    background-color: #58884e;
     color: #fff;
   }
   
+
+  .update-button {
+    display:  inline-block;
+    font-size: 16px;  
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+  }
+
+  .update-button:hover {
+    background-color: #acac61;
+    color: #fff;
+  }
+
+
+  .delete-button {
+    display:  inline-block;
+    font-size: 16px;  
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+    margin: 10px;
+  }
+
+  .delete-button:hover {
+    background-color: #ac6161;
+    color: #fff;
+  }
+
 
   
