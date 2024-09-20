@@ -17,7 +17,7 @@ const RegisterForm = () => {
     e.preventDefault();
     setErrorMessage('');
 
-    if (!name || ' ') {
+    if (!name ||  name.trim() === '') {
       setErrorMessage('Username is required.');
       return;
     }
