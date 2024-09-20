@@ -10,7 +10,11 @@ const imagesRouter = require('./routes/images');
 
 const port = process.env.PORT || 5000;
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://exhibition2app-1142ac9a25c2.herokuapp.com', 
+    credentials: true
+  }));
+  
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../client/build')));
