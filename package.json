@@ -1,0 +1,14 @@
+{
+  "name": "exhibition-project",
+  "version": "1.0.0",
+  "description": "<div dir='rtl'>\r <h1>مشروع المعرض</h1>\r  </div>",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js",
+    "heroku-postbuild": "cd server && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
