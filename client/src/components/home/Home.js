@@ -15,6 +15,7 @@ function Home() {
         setImages(sortedImages);
       } catch (err) {
         setError('Failed to load images');
+        console.log(err);
         console.error('Error fetching images:', err);
       }
     };
