@@ -19,7 +19,7 @@ Thumbs.db
 
 # Build output directories (if you have them at the root level)
 dist/
-build/
+#build/
 out/
 
 # Miscellaneous
@@ -29,5 +29,5 @@ out/
 *.temp
 
 # Ignore client build artifacts
-client/build/
+#client/build/
 client/.env
