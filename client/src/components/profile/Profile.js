@@ -48,6 +48,7 @@ function Profile() {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         });
+        console.log('Full API response:', response);
         const sortedImages = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setImages(sortedImages);
       } catch (err) {

@@ -10,8 +10,9 @@ function Home() {
     const fetchImages = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/images`);
+        console.log('API response:', response.data); 
         const sortedImages = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        setImages(response.data);
+        setImages(sortedImages);
       } catch (err) {
         setError('Failed to load images');
         console.error('Error fetching images:', err);
