@@ -9,10 +9,20 @@ function Home() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL|| window.location.origin}/api/images`);
+        const apiUrl = `${process.env.REACT_APP_API_URL || window.location.origin}/api/images`;
+        console.log('API URL:', apiUrl);
+
+        const response = await axios.get(apiUrl);
         console.log('API response:', response.data); 
-        const sortedImages = Array.isArray(response.data.images) ? response.data.images.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
-        setImages(sortedImages);
+
+        if (Array.isArray(response.data)) {
+          const sortedImages = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setImages(sortedImages);
+        } else {
+          setError('Invalid API response format');
+          console.error('Unexpected API response:', response.data);
+        }
+
       } catch (err) {
         setError('Failed to load images');
         console.log(err);
