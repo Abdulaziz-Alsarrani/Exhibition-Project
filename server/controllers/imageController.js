@@ -115,6 +115,7 @@ exports.get_all_images = async (req, res) => {
       ...image._doc, 
       imageUrl: `${req.protocol}://${req.get('host')}/${image.imageUrl}` // Convert to full URL
     }));
+    console.log(formattedImages);
     res.status(200).json(formattedImages);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch images' });

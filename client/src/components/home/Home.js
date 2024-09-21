@@ -13,7 +13,7 @@ function Home() {
         console.log('API URL:', apiUrl);
 
         const response = await axios.get(apiUrl);
-        console.log('API response:', response.data); 
+        console.log('API response:', response); 
 
         if (Array.isArray(response.data)) {
           const sortedImages = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
