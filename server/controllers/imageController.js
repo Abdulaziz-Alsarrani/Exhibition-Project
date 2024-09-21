@@ -113,7 +113,7 @@ exports.get_all_images = async (req, res) => {
     // Format the imageUrl to be accessible from the client side
     const formattedImages = images.map(image => ({
       ...image._doc, 
-      imageUrl: `${req.protocol}://${req.get('host')}/${image.imageUrl.replace(/^http:\/\//i, 'https://')}` // Convert to full URL
+      imageUrl:`https://${req.get('host')}/${image.imageUrl}` // Convert to full URL
     }));
     console.log(formattedImages);
     res.status(200).json(formattedImages);
@@ -129,7 +129,7 @@ exports.get_my_images = async (req, res) => {
     const images = await Image.find({ userId }); 
     const formattedImages = images.map(image => ({
       ...image._doc,
-      imageUrl:`${req.protocol}://${req.get('host')}/${image.imageUrl.replace(/^http:\/\//i, 'https://')}` // Build full URL
+      imageUrl:`https://${req.get('host')}/${image.imageUrl}` // Build full URL
     }));
     res.status(200).json(formattedImages);
   } catch (err) {
