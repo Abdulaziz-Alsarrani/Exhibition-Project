@@ -15,7 +15,7 @@ const UpdateModal = ({imageId, isOpen, onClose }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/images/${imageId}`,
+        `${process.env.REACT_APP_API_URL || window.location.origin}/api/images/${imageId}`,
         {title, description},
         {
           headers: {

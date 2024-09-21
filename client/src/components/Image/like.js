@@ -29,7 +29,7 @@ const Like = ({ imageId, initialLikes }) => {
         }
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/images/${imageId}/like`,
+            const response = await axios.post(`${process.env.REACT_APP_API_URL || window.location.origin}/api/images/${imageId}/like`,
                 {}, 
                 {
                     headers: {

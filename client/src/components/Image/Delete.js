@@ -10,7 +10,7 @@ const Delete = ({ imageId, isOpen, onClose }) => {
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.delete(`${process.env.REACT_APP_API_URL}/images/${imageId}`,
+            const response = await axios.delete(`${process.env.REACT_APP_API_URL || window.location.origin}/api/images/${imageId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
