@@ -58,7 +58,7 @@ function Profile() {
     };
 
     fetchImages();
-  }, [images]);
+  }, []);
 
   return (
     <div className="profile-page">
