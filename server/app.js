@@ -10,10 +10,28 @@ const imagesRouter = require('./routes/images');
 
 const port = process.env.PORT || 5000;
 const app = express();
+
+// app.use(cors({
+//     origin: 'https://exhibition2app-1142ac9a25c2.herokuapp.com', 
+//     credentials: true
+//   }));
+
+const allowedOrigins = [
+  'http://localhost:3000', // Local development
+  'https://exhibition2app-1142ac9a25c2.herokuapp.com' // Heroku production
+];
+
 app.use(cors({
-    origin: 'https://exhibition2app-1142ac9a25c2.herokuapp.com', 
-    credentials: true
-  }));
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
   
 app.use(express.json());
 

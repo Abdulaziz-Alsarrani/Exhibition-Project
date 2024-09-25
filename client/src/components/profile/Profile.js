@@ -12,6 +12,12 @@ function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatingImageId, setUpdatingImageId] = useState(null);
   const [deleteImageId, setDeleteImageId] = useState(null);
+  const [refreshImages, setRefreshImages] = useState(false);
+
+
+  const triggerImageRefresh = () => {
+    setRefreshImages(true); 
+  }
 
   const handleImageClick = () => {
     setIsModalOpen(true); // Open modal
@@ -19,6 +25,7 @@ function Profile() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false); // Close modal
+    triggerImageRefresh();
   };
 
 
@@ -29,6 +36,7 @@ function Profile() {
 
   const handleCloseUpdateModal = () => {
     setUpdatingImageId(null); 
+    triggerImageRefresh();
   };
 
   const handleDeleteClick = (imageId) => {
@@ -38,6 +46,7 @@ function Profile() {
 
   const handleCloseDeleteModal = () => {
     setDeleteImageId(null); 
+    triggerImageRefresh();
   };
 
   useEffect(() => {
@@ -51,6 +60,7 @@ function Profile() {
         console.log('Full API response:', response);
         const sortedImages = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setImages(sortedImages);
+        setRefreshImages(false);
       } catch (err) {
         setError('Failed to load images');
         console.error('Error fetching images:', err);
@@ -58,7 +68,7 @@ function Profile() {
     };
 
     fetchImages();
-  }, []);
+  }, [refreshImages]);
 
   return (
     <div className="profile-page">
