@@ -14,15 +14,18 @@
 
   .add-button {
     display: block;
-    width: 30%;
-    padding: 8px 16px;
+    width: 80px; 
     background-color: #333;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%; 
     cursor: pointer;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 50px auto; 
+    text-align: center; 
+    line-height: 60px; 
+    font-size: 16px; 
   }
+  
 
   .add-button:hover {
     background-color: #58884e;

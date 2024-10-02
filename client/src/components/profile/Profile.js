@@ -74,7 +74,7 @@ function Profile() {
     <div className="profile-page">
       <h2>My Uploaded Images</h2>
       {error && <p>{error}</p>}
-      <button className="add-button" onClick={handleImageClick}>Add Image</button>
+      <button className="add-button" onClick={handleImageClick}>Add</button>
       <AddModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
